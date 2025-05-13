@@ -1,0 +1,732 @@
+
+/* reset de margenes */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* Aqui empieza el modalBox de Bien Venida */
+.modalBox {
+    width: 100vw;
+    height: 100vh; /* Ocupa toda la pantalla */
+    background-color: rgba(0, 0, 0, 0.8); /* capa oscura de fondo */
+    position: fixed;
+    display: flex;
+    justify-content: center; /* centra horizontal */
+    align-items: center; /* centra vertical */
+    z-index: 7;
+}
+.modalBox h2 {
+    cursor: default;
+}
+#modalBienvenidaBox {
+    display: none; /* Oculto inicialmente */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 1); /* capa oscura */
+    justify-content: center;
+    align-items: center;
+}
+#modalBienVenida {
+    width: 800px;
+    height: 500px;
+    background-color: #E6E6DD;
+    padding: 50px;
+    text-align: center;
+    border-radius: 2rem;
+}
+#modalBienVenida > img {
+    margin-left: 0;
+}
+#modalBienVenida > button, #modalBienVenida > h2 {
+    margin: 3rem;
+}
+
+/* para trabajar con JS y bloquear el scroll */
+body.modalAbierto {
+    display: block;
+    overflow: hidden;
+}
+/* Formato de todos los botones de la web */
+.buttonTC {
+    font-family: 'Oswald', sans-serif; /* Fuente */
+    font-size: 1rem;
+    font-style: normal;
+    align-self: center;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #333;
+    color: #fff;
+    border: 2px solid transparent;
+    border-radius: 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease, border-style 0.3s ease, border-color 0.3s ease;
+}
+.buttonTC:hover {
+    background-color: #D19614;
+    color: black;
+    border-style: solid;
+    border-color: black;
+}
+/* Estilo de la sección del encabezado par slideShow automatico de heroImage sin efecto 
+    para que funcione hay que descomentar de la linea 39 a la 51 de scripts.js
+*/
+/*#encabezado {*/
+    /*position: relative;  Asegura que el ::before se posicione dentro */
+   /* width: 100%;
+    height: 100vh; /* Ocupa toda la pantalla */
+    /*background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url('../Media/imagenesTaller/heroImageEncabezado1.png'); /* Ruta heroImage */
+    /*background-size: cover; /* Hace que la imagen de fondo cubra todo el área del contenedor */
+    /*background-repeat: no-repeat;*/
+    /*background-position: center;*/
+    /*display: flex;*/
+    /*justify-content: center; /* Centrar horizontal */
+    /*transition: background-image 1s ease-in-out;
+}*/
+
+/* Estilo de la sección del encabezado con slideShow de herImage automatico con barrido lateral 
+    para que no funcione hay que comentar la linea 207 de scripts.js
+*/
+#encabezado {
+    position: relative; /* Asegura que el ::before se posicione dentro */
+    width: 100%;
+    height: 100vh; /* Ocupa toda la pantalla */
+    display: flex;
+    z-index: 5;
+    justify-content: center; /* Centrar horizontal */
+    overflow: hidden;
+}
+/* Aqui empieza el codigo del hero image automatico */
+.fondosHero {
+    width: 100%;
+    height: 100vh;
+    background-size: cover; /* Hace que la imagen de fondo cubra todo el área del contenedor */
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateX(100%);
+    transition: transform 1.5s ease-in-out;
+    z-index: 0;
+    opacity: 1;
+}
+    .fondosHero.visible {
+        transform: translateX(0);
+        z-index: 1;
+    }
+    .fondosHero.saliente {
+        transform: translateX(-100%);
+        z-index: 0;
+    }
+#fondoBase {
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../Media/imagenesTaller/heroImageEncabezado4.png'); /* Ruta heroImage */
+    transition: transform 1.5s ease-in-out;
+}
+    #fondoBase.saliente {
+        transform: translateX(-100%);
+        z-index: 0;
+    }
+#fondoHero1 {
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../Media/imagenesTaller/heroImageEncabezado1.png'); /* Ruta heroImage */
+}
+#fondoHero2 {
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../Media/imagenesTaller/heroImageEncabezado2.png'); /* Ruta heroImage */
+}
+#fondoHero3 {
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../Media/imagenesTaller/heroImageEncabezado3.png'); /* Ruta heroImage */
+}
+#fondoHero4 {
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../Media/imagenesTaller/heroImageEncabezado4.png'); /* Ruta heroImage */
+}
+
+/* Contenedor que agrupa el logo y la frase */
+#contenedorInicio {
+    /* Centrar el contenedor principal de inicio */
+    position: relative;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+/* Estilizar el logo */
+#logoInicio {
+    border-radius: 2rem;
+    height: 8rem; /* Ajustar tamaño */
+    width: auto;
+    filter: brightness(95%); /* oscurece la imagen */
+    /* Animacion del logo de inicio */
+    animation-name: fadein;
+    animation-duration: 2s;
+}
+/* Estilizar la frase */
+#fraseInicio {
+    color: #D0D5D2; /* Color */
+    font-family: 'Oswald', sans-serif; /* Fuente */
+    font-size: 3rem;
+    font-weight: bold;
+    /* Animacion de a frase de inicio */
+    animation-name: fadein;
+    animation-duration: 2s;
+}
+#contenedorInicio h2 {
+    cursor: default;
+}
+/* Alinear el contenedor del menu horizontal y el logo del encabezado */
+nav {
+    position: fixed; /* Fija el menú en la parte superior */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px; /* altura inicial */
+    padding: 0px 20px; /* Espaciado */
+    z-index: 6;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Transicion de fondo oscuro y cambio de tamaño para menu al hacer scroll */
+    transition: background-color 0.5s ease, height 0.5s ease, padding 0.5s ease;
+    /* Animacion del nav */
+    animation-name: fadein;
+    animation-duration: 2s;
+}
+/* Cuando se ejecuta el script que advierte del scroll añade la case scrolled al nav y se aplica el fondo */
+nav.scrolled {
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 50px; /* lo hacemos más bajo */
+    padding: 0 20px; /* reduce el padding */
+}
+nav.scrolled .elementoMenu > a {
+    font-size: 1.5rem;
+}
+nav.scrolled #subMenu {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+nav.scrolled .elementoSubMenu > a {
+    font-size: 1.25rem;
+}
+nav.scrolled #logoEmpresaEncabezado {
+    height: 2rem; /* más pequeño al hacer scroll */
+    margin-top: 0px;
+    margin-left: 20px;
+}
+/* Estilizar el logo */
+#logoEmpresaEncabezado {
+    z-index: 5;
+    border-radius: 1rem;
+    margin-left: 40px; /* Ajusta el margen izquierdo */
+    height: 3rem; /* Tamaño del logo */
+    width: auto;
+    transition: height 0.5s ease, margin 0.5s ease;
+}
+#menuh {
+    z-index: 5;
+    list-style: none;
+    padding: 0 40px 0 10px;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+    height: 50px;
+    padding-right: 40px;
+    align-items: center; /* centrar verticalmente los enlaces */
+}
+.elementoMenu {
+    position: relative;
+    height: 100%; /* Ocupa toda la altura del menú */
+    display: flex; /* Para centrar el enlace dentro */
+    align-items: center; /* Centra el <a> verticalmente */
+}
+.elementoMenu > a {
+    text-decoration: none;
+    color: #DADCD8;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    padding: 0px 10px;
+    display: inline-block;
+    line-height: 1;
+    /* Transicion de de color y subrayado de elementos de menuh */
+    transition: color 0.5s ease, text-decoration 0.5s ease;
+}
+.elementoMenu > a:hover {
+    color: #D19614;
+    text-decoration: underline;
+}
+/* subMenu del nav */
+#subMenu {
+    list-style: none;
+    position: absolute;
+    top: 100%;
+    left: 0.75rem;
+    /*para luego mostrarlo con hover no usasmos display ya que no se puede animar ni usar la transicion */
+    visibility: hidden;
+    opacity: 0;
+    background-color: transparent;
+    font-size: 1.5rem; /* tamaño inicial */
+    /* Transicion de fondo oscuro y cambio de tamaño para menu al hacer scroll */
+    transition: background-color 0.5s ease, opacity 0.5s ease, font-size 0.5s ease;
+    /* Añadimos will-changes para suavizar aún más la transición */
+    will-change: transform;
+}
+}
+.elementoSubMenu {
+    text-decoration: none;
+}
+/* esta regla enlacaza el hacer hover sobre un elementoMenu que contiene el submenu lo hara visible e interactuable */
+.elementoMenu:hover #subMenu {
+    opacity: 1;
+    visibility: visible;
+}
+.elementoSubMenu > a {
+    font-family: 'Oswald', sans-serif; /* Fuente */
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: #D0D5D2; /* Color */
+    /* Transicion de de color y subrayado de elementos de submenu */
+    transition: font-size 0.5s ease, color 0.5s ease, text-decoration 0.5s ease;
+}
+.elementoSubMenu > a:hover {
+    color: #D19614;
+    text-decoration: underline;
+}
+/* Animacion del encabezado al cargar la pagina */
+@keyframes fadein {
+    /* para marcar cambios en cada fase de la animacion  
+    0% {opacity: 0;}
+    25% {opacity: 0.4;}
+    50% {opacity: 0.7;}
+    75% {opacity: 0.9;}
+    100% {opacity: 1;}*/
+    /* para que la transicion de 0 opacidad a 1 sea lo mas fluida posible */
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+/* Fin del encabezado */
+/* Ajustar secciones siguientes para compensar el menú fijo */
+section {
+    padding-top: 60px; /* Altura del menú fijo */
+    min-height: 100vh; /* Ocupa toda la altura de la pantalla */ 
+    text-align: center; /* Asegura que el texto se centre */
+    overflow: hidden;
+}
+/* Estilos específicos para el título */
+.tituloSeccion {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 4rem; /* tamaño del título */
+    font-style: normal; /* estilo de fueste */
+    font-weight: normal;
+    color: #000000;
+    cursor: default;
+}
+.tituloSeccionBlanco {
+	color: white;
+}
+/* Efecto Parallax */
+.parallax-window {
+    
+}
+/* Sección Filosofia */
+#filosofia {
+    min-height: 100vh; /* Ocupa toda la pantalla */
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../Media/imagenesTaller/heroImageFilosofia.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#contenedorFilosofia {
+    width: 1200px;
+    height: 530px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden; /* hace falta incluirla en el contenedor */
+}
+.columnaFilosofia {
+	width: 50%;
+	height: 525px;
+	float: left;
+	/* overflow: auto;  Activa el scroll si el contenido es mayor */
+}
+.columnaFilosofia > p {
+	/* Fuente */
+    cursor: default;
+	font-family: 'Oswald', sans-serif; 
+    font-size: 1.25rem;
+    color: white;
+    padding-top: 6rem;
+	margin-left: 50px;
+	margin-right: 50px;
+}
+#videoFilosofia {
+    border: solid #000;
+    border-radius: 2rem;
+    cursor: pointer;
+    width: calc(100% - 75px);
+    height: 300px;
+    background-color: black;
+    margin-top: 6rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* Eliminar los bordes redondeados al hacer fullscreen */
+#videoFilosofia:fullscreen {
+    border-radius: 0;
+}
+/* Sección Servicios */
+#servicios {
+    width: 100%;
+    min-height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../Media/imagenesTaller/heroImageServicios.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+.contenedorEtiquetasServicios {
+    width: 995px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+    align-items: center;
+}
+.etiquetaServicio {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.1rem;
+    color: white;
+    text-decoration: none;
+    margin: 0 4rem;
+    cursor: pointer;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+    display: inline-block; /* asegura que se muestren los elementos en fila */
+}
+.etiquetaServicio:hover {
+    color: #D19614;
+    text-decoration: none; 
+}
+.etiquetaActiva {
+    color: #D19614;
+    text-decoration: underline;
+}
+.pestOculta {
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: none;
+}
+.contenedorServicios {
+    width: 995px;
+    height: 485px;
+    margin: auto;
+    display: none;
+}
+.servicio {
+    width: calc(50% - 35px);
+    height: calc(50% - 35px);
+    float: left;
+    margin: 17.5px;
+}
+
+.animServP {
+    animation-name: animServ;
+    animation-duration: 1s;
+}
+@keyframes animServ {
+    from {transform: scale(0.25,0.25);};
+    to {transform: scale(1,1);};
+}
+.imagenServicio {
+    border-radius: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0.5rem;
+    width: calc(100% - 77.5px);
+    height: calc(100% - 40px);
+    transition: box-shadow 0.3s ease;
+    overflow: hidden; /* se añade para que el efecto scale no se salga del contenedor */
+}
+.imagenServicio:hover {
+    box-shadow: 0 0 10px #D19614;
+}
+.imagenServicio img {
+    width: 100%;
+    height: auto;
+    /* Transicion del escalado de la imagen al hacer hover */
+    transition: transform 0.3s ease;
+}
+.imagenServicio img:hover {
+    transform: scale(1.2,1.2); /* efecto de agrandar las imagenes de los servicios */
+    cursor: grab;
+}
+.nombreServicio {
+	font-family: 'Bebas Neue', sans-serif;
+    font-size: 1rem; 
+	color: white;
+}
+.precioServicio {
+	font-family: 'Bebas Neue', sans-serif;
+    font-size: 1rem; 
+	color: white;
+}
+
+/* Sección Galeria */
+#galeria {
+    width: 100%;
+    height: 100vh; /* Ocupa toda la pantalla */
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../Media/imagenesTaller/heroImageGaleria.png'); /* Ruta heroImage */
+    background-size: cover; /* Hace que la imagen de fondo cubra todo el área del contenedor */
+    background-repeat: no-repeat;
+    background-position: center;
+    justify-content: center; /* Centrar horizontal */
+}
+#contenedorGaleria {
+    width: 1200px;
+    height: 540px;
+    /*background-color: tomato;*/
+    margin: 0 auto; /* Centra horizontalmente */
+    /* Uso GRID para crear la cuadrícula 3 x 3 */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas del mismo ancho */
+    grid-template-rows: repeat(3, 1fr); /* 3 filas del mismo alto */
+    gap: 10px; /* Espacio entre las celdas */
+}
+.imagenGaleria {
+    /* Por ahora no lo uso directamente*/
+}
+.imagenGaleria img {
+    transition: transform 0.3s, box-shadow 0.3s ease; /* Para la transición suave */
+    border-radius: 2rem;
+    width: 350px;
+    height: 160px;
+}
+.imagenGaleria img:hover {
+    box-shadow: 0 0 10px #D19614;
+    transform: scale(1.2, 1.2); /* Efecto de agrandar la imagen */
+    cursor: pointer;
+}
+/* Modal confirmacion solicitud cita previa */
+#modalGaleriaBox {
+    display: none; /* Oculto inicialmente */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 1); /* capa oscura */
+    justify-content: center;
+    align-items: center;
+}
+
+#modalGaleria {
+    background-color: #E6E6DD;
+    padding: 30px;
+    border-radius: 2rem;
+    text-align: center;
+    width: 90vw; 
+    max-width: 1200px; /* Límite máximo para pantallas grandes */
+    max-height: 95vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#imagenGrande {
+    width: auto;
+    height: 100%; /* Se ajusta al 100% del contenedor */
+    max-height: 70vh;
+    object-fit: contain;
+    border-radius: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+}
+#imagenGrande:fullscreen {
+    border-radius: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    background-color: black; /* opcional, para asegurar contraste */
+    display: block;
+    margin: 0 auto;
+}
+#imagenGrande:hover {
+    transform: scale(1.05); /* Escalado ligero al hacer hover */
+    box-shadow: 0 0 25px #D19614, 0 0 40px #D19614; /* box-shadow con resplandor */
+    cursor: grab;
+}
+
+#modalGaleria > img {
+    margin-bottom: 1rem;
+    margin-left: 0;
+}
+
+.buttonGal {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 2rem; /* aumenta el tamaño del icono */
+}
+.buttonGal:hover i {
+    color: black;
+}
+#botonGaleriaR{
+    right: 30px;
+}
+#botonGaleriaL {
+    left: 30px;
+}
+/* Sección Contacto */
+#contacto {
+    background-color: #E6E6DD;
+    min-height: 100vh; /* Ocupar toda la pantalla */
+}
+/* Contenedor con dos columnas */
+#contenedorContacto {
+    width: 1200px;    
+    margin: 0 auto;   
+    /* Para crear columnas puedes usar grid o flex */
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 columnas del mismo ancho */
+    gap: 20px; /* espacio horizontal/vertical entre columnas y/o filas */
+}
+/* Columna Izquierda */
+#colIzqContacto {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+/* Mapa */
+#contenedorMapa {
+    width: 100%;
+    height: 370px; /* altura de la imagen del mapa */
+    transition: transform 0.3s ease;
+}
+#contenedorMapa:hover {
+    transform: scale(1.02); /* Escalado ligero al hacer hover */
+}
+#contenedorMapa > iframe {
+    border-radius: 2rem;
+    width: 100%;
+    height: 100%;
+    margin-top: 30px;
+}
+/* Info de dirección y horario */
+#infoContacto {
+    margin-top: -2.5rem; 
+}
+#infoContacto h3  {
+    font-family: 'Oswald', sans-serif; /* Fuente */
+    font-size: 1rem; 
+    font-style: normal;
+    margin: 0 0 10px;
+    margin-top: 30px;
+    font-size: 1.2rem;
+}
+#infoContacto p {
+    font-family: 'Oswald', sans-serif; /* Fuente */
+    font-size: 1rem; 
+    font-style: normal;
+    margin: 0 0 20px;
+}
+/* Columna Derecha */
+#colDerContacto {
+	/* background-color: #f9f9f9; */
+}
+#colDerContacto h3 {
+    font-family: 'Oswald', sans-serif; /* Fuente */
+    font-style: normal;
+}
+/* Formulario */
+#formCP {
+    border-radius: 2rem;
+    font-family: 'Oswald', sans-serif; /* Fuente */
+    font-size: 1rem;
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* espacio entre campos */
+    text-align: left; /* Alinea el texto a la izquierda */
+}
+#formCP label {
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+#colDerContacto > h3 {
+    cursor: grab;
+    transition: color 0.5s ease;
+}
+#colDerContacto > h3:hover {
+    color: #D19614;
+}
+#formCP input,
+#formCP textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 1rem;
+}
+/* Extra info (email y teléfono) debajo del botón */
+.infoItem {
+    font-family: 'Oswald', sans-serif; /* Fuente */
+    font-size: 1rem;
+    font-style: normal;
+    margin-top: 20px; /* separa un poco del formulario */
+    margin-bottom: 10px;
+}
+/* Modal confirmacion solicitud cita previa */
+#modalConfirmacionCita {
+    display: none; /* Oculto inicialmente */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 1); /* capa oscura */
+    justify-content: center;
+    align-items: center;
+}
+#modalFormCita {
+    background-color: #E6E6DD;
+    padding: 50px;
+    border-radius: 2rem;
+    text-align: center;
+    width: 80%;
+    max-width: 800px;
+    height: auto;
+}
+#modalFormCita > img {
+    margin-left: 0;
+}
+#modalFormCita > button, #modalFormCita > h2 {
+    margin: 3rem;
+}
+#btnDesplegarInfo {
+    margin-top: 1.2rem;
+}
+/* Acordeón para informacion extra */
+.acordeonOculto {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+}
+
+.acordeonActivo {
+    margin-top: 0rem;
+    max-height: 500px; 
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+}

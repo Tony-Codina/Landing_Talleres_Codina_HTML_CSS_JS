@@ -1,0 +1,324 @@
+<!DOCTYPE html> <!-- define el tipo de documento solo es el elemento de entrada -->
+<html lang="es"> <!-- elemento root contenedor principal -->
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="CSS/style.css">
+	<!-- FONT AWESOME PARA ICONOS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<!-- Fuentes Oswald y Bebas Neue -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+	<!-- Aos animation library -->
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<!-- Enlazamos con script.js -->
+	<script src="JS/scripts.js" defer></script>
+	<!-- Precarga de imagenes para heroImage SlideShow -->
+	<link rel="preload" as="image" href="Media/imagenesTaller/heroImageEncabezado1.png">
+	<link rel="preload" as="image" href="Media/imagenesTaller/heroImageEncabezado2.png">
+	<link rel="preload" as="image" href="Media/imagenesTaller/heroImageEncabezado3.png">
+	<link rel="preload" as="image" href="Media/imagenesTaller/heroImageEncabezado4.png">
+	<!-- jQuery (requerido por parallax.js) -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<!-- Parallax.js si lo descomento se oculta todo el contenido de la web
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="/path/to/parallax.js"></script>-->
+	<title>Talleres Codina</title>
+</head>
+<body>
+	<!-- Modal de bien venida -->
+	<div id="modalBienvenidaBox" class="modalBox">
+		<div id="modalBienVenida">
+			<h1 class="tituloSeccion">Bienvenido a</h1>
+			<img src="Media/imagenesTaller/logoEmpresa3.png" alt="Logo Talleres Codina" id="logoEmpresaEncabezado">
+			<h2 class="fraseInicio">Tu confianza se basa en nuestra profesionalidad</h2>
+			<button id="botonComenzar" class="buttonTC" title="AL LIO">Comencemos</button>
+		</div>
+	</div>
+	<!-- Menú horizontal fijo -->
+	<nav>
+		<!-- Logo pequeño de la empresa que es un enlace al encabezado -->
+		<a href="#encabezado">
+			<img src="Media/imagenesTaller/logoEmpresa3.png" alt="Logo Talleres Codina" id="logoEmpresaEncabezado">
+		</a>
+		<!-- Lista de enlaces del menú horizontal -->
+		<ul id="menuh">
+			<li class="elementoMenu"><a href="#encabezado">Inicio</a></li>
+			<li class="elementoMenu"><a href="#filosofia">Filosofia</a></li>
+			<li class="elementoMenu">
+				<a href="#servicios">Servicios</a>
+				<ul id="subMenu">
+					<li class="elementoSubMenu"><a href="#servicios" pestSel="etSM">Mantenimientos</a></li>
+					<li class="elementoSubMenu"><a href="#servicios" pestSel="etSF">Frenos</a></li>
+					<li class="elementoSubMenu"><a href="#servicios" pestSel="etSRA">Rep y Asist</a></li>
+				</ul>
+			</li>
+			<li class="elementoMenu"><a href="#galeria">Galeria</a></li>
+			<li class="elementoMenu"><a href="#contacto">Contacto</a></li>
+		</ul>
+	</nav>
+	<!-- Sección Encabezado -->
+	<header id="encabezado">
+		<!-- Fondos de heroImage del encabezado para el SlideShow con barrido -->
+		<div id="fondoBase"></div>
+		<div class="fondosHero" id="fondoHero1"></div>
+		<div class="fondosHero" id="fondoHero2"></div>
+		<div class="fondosHero" id="fondoHero3"></div>
+		<div class="fondosHero" id="fondoHero4"></div>
+		<!-- Contenido de la sección Encabezado -->
+		<div id="contenedorInicio">
+			<img src="Media/imagenesTaller/logoEncabezado.png" alt="Logo Talleres Codina" id="logoInicio">
+			<h2 id="fraseInicio">Tu confianza se basa en nuestra profesionalidad</h2>
+		</div>
+	</header>
+	<!-- Englobar las secciones en <main></main> para cumplir con la pauta 2.4.1 (Bypass Blocks) de las WCAG, lo que ayuda a los usuarios que utilizan tecnologías de asistencia.-->
+	<!-- Sección Filosofia -->
+	<section id="filosofia">
+		<h1 class="tituloSeccion tituloSeccionBlanco" data-aos="fade-down-left">Filosofía</h1>
+
+		<!-- Parallax con el fondo -->
+		<div class="parallax-window" data-parallax="scroll" data-image-src="Media/imagenesTaller/imagenParallax.png">
+            
+			<!-- Contenido encima del fondo parallax -->
+			<div id="contenedorFilosofia">
+				<div class="columnaFilosofia" data-aos="fade-up-right">
+					<video src="Media/videoTaller/videoTaller.mp4" id="videoFilosofia" controls muted poster="Media/videoTaller/fondoVideo.jpg"></video>
+				</div>
+				<div class="columnaFilosofia" data-aos="fade-up-left">
+					<p>
+						En Talleres Codina, nuestra filosofía se basa en la excelencia, la transparencia y el compromiso con nuestros clientes, nos esforzamos por ofrecer un servicio basado en la honestidad, la responsabilidad y la eficiencia, asegurando la máxima calidad en cada reparación. Utilizamos tecnología avanzada y técnicas actualizadas para garantizar diagnósticos precisos.<br>
+						Nuestro objetivo es brindar seguridad y confianza en cada intervención.<br>
+						Porque tu tranquilidad en la carretera es nuestra mayor satisfacción.<br>
+						Y sabemos que tu confianza se basa en nuestra profesionalidad
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Sección Servicios -->
+	<section id="servicios">
+		<h1 class="tituloSeccion tituloSeccionBlanco" data-aos="fade-down-left">Servicios</h1>
+		<!-- contenedor pestana -->
+		<div id="contenedorEtiquetasServicios" data-aos="zoom-in">
+			<p id="etSM" class="etiquetaServicio">Mantenimientos</p>
+			<p id="etSF" class="etiquetaServicio">Frenos</p>
+			<p id="etSRA" class="etiquetaServicio">Reparaciones y Asistencias</p>
+		</div>
+		<!-- Pestana Mantenimientos de servicios -->
+		<div id="pestMant" class="contenedorServicios">
+			<div class="servicio sM" data-aos="zoom-in">
+				<div class="imagenServicio">
+					<img src="Media/imagenesTaller/imagenesPestanas/imgServMantenimientoX.png" alt="Mantenimiento X por KM" />
+				</div>
+				<p class="nombreServicio">Mantenimiento X por KM</p>
+				<p class="precioServicio">precioServicio</p>
+			</div>
+			<div class="servicio sM" data-aos="zoom-in">
+				<div class="imagenServicio">
+					<img src="Media/imagenesTaller/imagenesPestanas/imgServMantenimientoXY.png" alt="Mantenimiento X + Y" />
+				</div>
+				<p class="nombreServicio">Mantenimiento X + Y</p>
+				<p class="precioServicio">precioServicio</p>
+			</div>
+			<div class="servicio sM" data-aos="zoom-in">
+				<div class="imagenServicio">
+					<img src="Media/imagenesTaller/imagenesPestanas/imgServTrabAd.png" alt="Trabajos adicionales" />
+				</div>
+				<p class="nombreServicio">Trabajos adicionales</p>
+				<p class="precioServicio">precioServicio</p>
+			</div>
+			<div class="servicio sM" data-aos="zoom-in">
+				<div class="imagenServicio">
+					<img src="Media/imagenesTaller/imagenesPestanas/imgServBaterias.png" alt="Baterias" />
+				</div>
+				<p class="nombreServicio">Baterias</p>
+				<p class="precioServicio">precioServicio</p>
+			</div>
+		</div>
+		<!-- Pestana Frenos de servicios -->
+		<div id="pestFren" class="contenedorServicios">
+			<div class="servicio sF" data-aos="zoom-in">
+				<div class="imagenServicio">
+					<img src="Media/imagenesTaller/imagenesPestanas/imgServPastillas.png" alt="Pastillas de freno" />
+				</div>
+				<p class="nombreServicio">Pastillas de freno</p>
+				<p class="precioServicio">precioServicio</p>
+			</div>
+			<div class="servicio sF" data-aos="zoom-in">
+				<div class="imagenServicio">
+					<img src="Media/imagenesTaller/imagenesPestanas/imgServDiscos.png" alt="Discos de freno" />
+				</div>
+				<p class="nombreServicio">Discos de freno</p>
+				<p class="precioServicio">precioServicio</p>
+			</div>
+			<div class="servicio sF" data-aos="zoom-in">
+				<div class="imagenServicio">
+					<img src="Media/imagenesTaller/imagenesPestanas/imgServPinzas.png" alt="Pinzas de freno" />
+				</div>
+				<p class="nombreServicio">Pinzas de freno</p>
+				<p class="precioServicio">precioServicio</p>
+			</div>
+			<div class="servicio sF" data-aos="zoom-in">
+				<div class="imagenServicio">
+					<img src="Media/imagenesTaller/imagenesPestanas/imgServPulmones.png" alt="Pulmones de freno" />
+				</div>
+				<p class="nombreServicio">Pulmones de freno</p>
+				<p class="precioServicio">precioServicio</p>
+			</div>
+		</div>
+		<!-- Pestana Reaparaciones y Asistencias de servicios -->
+		<div id="pestRA" class="contenedorServicios">
+			<div class="servicio sRA" data-aos="zoom-in">
+				<div class="imagenServicio">
+					<img src="Media/imagenesTaller/imagenesPestanas/imgServRepMec.png" alt="Reparaciones mecanica" />
+				</div>
+				<p class="nombreServicio">Reparaciones mecanica</p>
+				<p class="precioServicio">precioServicio</p>
+			</div>
+			<div class="servicio sRA" data-aos="zoom-in">
+				<div class="imagenServicio">
+					<img src="Media/imagenesTaller/imagenesPestanas/imgServRepElec.png" alt="Reparaciones electricidad" />
+				</div>
+				<p class="nombreServicio">Reparaciones electricidad</p>
+				<p class="precioServicio">precioServicio</p>
+			</div>
+			<div class="servicio sRA" data-aos="zoom-in">
+				<div class="imagenServicio">
+					<img src="Media/imagenesTaller/imagenesPestanas/imgServRepCar.png" alt="Reparaciones carroceria" />
+				</div>
+				<p class="nombreServicio">Reparaciones carroceria</p>
+				<p class="precioServicio">precioServicio</p>
+			</div>
+			<div class="servicio sRA" data-aos="zoom-in">
+				<div class="imagenServicio">
+					<img src="Media/imagenesTaller/imagenesPestanas/imgServRepAs.png" alt="Asistencia en carretera" />
+				</div>
+				<p class="nombreServicio">Asistencia en carretera</p>
+				<p class="precioServicio">precioServicio</p>
+			</div>
+		</div>
+	</section>
+	<!-- Sección Galeria -->
+	<section id="galeria">
+		<h1 class="tituloSeccion tituloSeccionBlanco" data-aos="fade-down-left">Galeria</h1>
+		<div id="contenedorGaleria">
+			<div class="imagenGaleria">
+				<img src="Media/imagenesTaller/carrusel/img1Galeria.jpg" alt="imagen 1 Galeria" data-aos="flip-up" data-aos-delay="100">
+			</div>
+			<div class="imagenGaleria">
+				<img src="Media/imagenesTaller/carrusel/img2Galeria.jpg" alt="imagen 2 Galeria" data-aos="flip-up" data-aos-delay="100">
+			</div>
+			<div class="imagenGaleria">
+				<img src="Media/imagenesTaller/carrusel/img3Galeria.jpg" alt="imagen 3 Galeria" data-aos="flip-up" data-aos-delay="100">
+			</div>
+			<div class="imagenGaleria">
+				<img src="Media/imagenesTaller/carrusel/img4Galeria.jpg" alt="imagen 4 Galeria" data-aos="flip-up" data-aos-delay="200">
+			</div>
+			<div class="imagenGaleria">
+				<img src="Media/imagenesTaller/carrusel/img5Galeria.jpg" alt="imagen 5 Galeria" data-aos="flip-up" data-aos-delay="200">
+			</div>
+			<div class="imagenGaleria">
+				<img src="Media/imagenesTaller/carrusel/img6Galeria.jpg" alt="imagen 6 Galeria" data-aos="flip-up" data-aos-delay="200">
+			</div>
+			<div class="imagenGaleria">
+				<img src="Media/imagenesTaller/carrusel/img7Galeria.jpg" alt="imagen 7 Galeria" data-aos="flip-up" data-aos-delay="300">
+			</div>
+			<div class="imagenGaleria">
+				<img src="Media/imagenesTaller/carrusel/img8Galeria.jpg" alt="imagen 8 Galeria" data-aos="flip-up" data-aos-delay="300">
+			</div>
+			<div class="imagenGaleria">
+				<img src="Media/imagenesTaller/carrusel/img9Galeria.jpg" alt="imagen 9 Galeria" data-aos="flip-up" data-aos-delay="300">
+			</div>
+		</div>
+		<!-- Modal de la galeria -->
+		<div id="modalGaleriaBox" class="modalBox">
+			<div id="modalGaleria">
+				<img src="Media/imagenesTaller/logoEmpresa3.png" alt="Logo Talleres Codina" id="logoEmpresaEncabezado">
+				<img id="imagenGrande" src="" alt="Imagen ampliada">
+				<h2 class="fraseInicio">Trabajos realizados en Talleres Codina</h2>
+			</div>
+			<button id="botonGaleriaL" class="buttonTC buttonGal">
+				<i class="fa-solid fa-angle-left"></i>
+			</button>
+			<button id="botonGaleriaR" class="buttonTC buttonGal">
+				<i class="fa-solid fa-angle-right"></i>
+			</button>
+		</div>
+	</section>
+	<!-- Sección Contacto -->
+	<section id="contacto">
+		<h1 class="tituloSeccion" data-aos="fade-down-left">Contacto</h1>
+		<!-- Contenedor principal que agrupa las dos columnas -->
+		<div id="contenedorContacto">
+			<!-- Columna izquierda: mapa + info -->
+			<div id="colIzqContacto" data-aos="fade-up-right">
+				<div id="contenedorMapa">
+					<!-- Cambiar img x iframe de Google Maps -->
+					<iframe id="mapaTaller"
+							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2993.6065600602814!2d2.284612815419173!3d41.6109731792455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a493e735d3f41f%3A0x8766a7d7e8e48ec0!2sCarrer%20Londres%2C%201%2C%2008401%20Granollers%2C%20Barcelona!5e0!3m2!1ses!2ses!4v1645098907353!5m2!1ses!2ses"
+							width="100%"
+							height="100%"
+							style="border:0; border-radius: 2rem;"
+							allowfullscreen=""
+							loading="lazy"
+							referrerpolicy="no-referrer-when-downgrade">
+					</iframe>
+				</div>
+				<button id="btnDesplegarInfo" class="buttonTC" title="Haz click para mostrar la info">Mostrar datos de contacto</button>
+				<div id="infoContacto" class="acordeonOculto">
+					<h3>Horario</h3>
+					<p>Lunes - Viernes: 9:00 - 14:00 / 16:00 - 19:00<br>(Sábados y Domingos CERRADO)</p>
+
+					<h3>Dirección</h3>
+					<p>Carrer Londres, 1, 08401 Granollers, Barcelona</p>
+
+					<h3>Teléfono</h3>
+					<p>+34 645 643 855</p>
+
+					<h3>Email</h3>
+					<p>taller@tcodina.com</p>
+				</div>
+			</div>
+			<!-- Columna derecha: formulario + datos (email, teléfono) -->
+			<div id="colDerContacto" data-aos="fade-up-left">
+				<h3>Formulario cita previa</h3>
+				<!-- Incorporar al formulario atributos ARIA (como aria-required, aria-invalid) para mejorar la accesibilidad y cumplir con la pauta 1.3.1 (Información y relaciones) de las WCAG. Además, también contribuyes de forma indirecta a la pauta 4.1.2 (Nombre, rol y valor)-->
+				<form id="formCP">
+					<label for="nombre">Nombre</label>
+					<input type="text" id="nombre" name="nombre" placeholder="Nombre completo" required>
+
+					<label for="telefono">Teléfono</label>
+					<input type="tel" id="telefono" name="telefono" required pattern="[0-9]{9}" placeholder="Número de 9 cifras sin espacios">
+
+					<label for="fecha">Fecha Deseada</label>
+					<input type="date" id="fecha" name="fecha" required>
+
+					<label for="comentarios">Comentarios</label>
+					<textarea id="comentarios" name="comentarios" rows="4" placeholder="Motivo de tu cita (opcional)"></textarea>
+
+					<button id="botonEnviarCita" class="buttonTC" type="button" title="Rellena antes el formulario">Solicitar cita previa</button>
+				</form>
+			</div>
+		</div>
+		<!-- Modal de confirmacion del formulario cita previa -->
+		<div id="modalConfirmacionCita" class="modalBox">
+			<div id="modalFormCita">
+				<img src="Media/imagenesTaller/logoEmpresa3.png" alt="Logo Talleres Codina" id="logoEmpresaEncabezado">
+				<h1 class="tituloSeccion">Gracias por solicitar tu cita</h1>
+				<h2 id="mensajeSolCita" class="fraseInicio"></h2>
+				<button id="botonCerrarCita" class="buttonTC" title="¡Gracias!">Aceptar</button>
+			</div>
+		</div>
+	</section>
+	<!-- Sección Footer -->
+	<footer id="pie">
+		<!-- falta añadir los enlaces a las RRSS con sus logos -->
+	</footer>
+	<!-- La inicialización de la app principal de AOS esta en la línea 8 de scripts.js
+	<script>
+		AOS.init();
+	</script> -->
+</body>
+</html>
